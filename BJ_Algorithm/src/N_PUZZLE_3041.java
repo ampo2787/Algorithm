@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class N_PUZZLE {
+public class N_PUZZLE_3041 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[] line = new String[4];

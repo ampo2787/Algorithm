@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class MarbleEscape2_13460 {
     static int[] di = {-1, 0, 1, 0};
     static int[] dj = {0, 1, 0, -1};
     static int[] direction = {0, 1, 2, 3};

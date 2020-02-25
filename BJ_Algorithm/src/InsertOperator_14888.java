@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class InsertOperator_14888 {
 	static int N;
 	static int[] A;
 	static int[] oper;

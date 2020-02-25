@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main {
+public class AddBracket_16637 {
 	public static void main(String args[]) throws IOException {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();

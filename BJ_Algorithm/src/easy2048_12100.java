@@ -4,7 +4,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main {
+public class easy2048_12100 {
 	static int[] dy = { 1, 0, -1, 0 };
 	static int[] dx = { 0, -1, 0, 1 };
 

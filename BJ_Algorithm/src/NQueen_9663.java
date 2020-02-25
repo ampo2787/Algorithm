@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class NQueen_9663 {
     static boolean[][] chess;
     static int N;
     static int number;

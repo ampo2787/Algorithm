@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Hanoi_11729 {
     public static int number = 0;
     public static StringBuilder sb = new StringBuilder();
 

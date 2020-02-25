@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Main {
+public class Olympic_8979 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -34,7 +34,7 @@ public class Main {
 							return 1;
 						} 
 						else if(o1[3] == o2[3]) {
-							return 0; // ¿©±â -1 ·Î ÇÏ¸é ·±Å¸ÀÓ¿¡·¯.
+							return 0; // ï¿½ï¿½ï¿½ï¿½ -1 ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½Å¸ï¿½Ó¿ï¿½ï¿½ï¿½.
 						}
 						else {
 							return -1;

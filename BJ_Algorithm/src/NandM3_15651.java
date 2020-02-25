@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class NandM3_15651 {
     static int N,M;
     static StringBuilder sb = new StringBuilder();
     static int[] list;

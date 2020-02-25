@@ -1,11 +1,9 @@
-package baekjoon;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Baaaaaaaaaduk2_easy_16988 {
 	static int n, m;
 	static int[][] map;
 	static ArrayList<int[]> list = new ArrayList();

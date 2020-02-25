@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Wine_2156 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

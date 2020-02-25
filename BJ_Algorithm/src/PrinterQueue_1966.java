@@ -1,8 +1,6 @@
-package BJ_1966_PrinterQueue;
-
 import java.util.Scanner;
 
-public class Main {
+public class PrinterQueue_1966 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

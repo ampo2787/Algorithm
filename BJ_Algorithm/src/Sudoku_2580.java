@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class Sudoku_2580 {
 	static int[][] list;
 	static boolean[] partList = new boolean[10];
 	static ArrayList<int[]> emptyList;

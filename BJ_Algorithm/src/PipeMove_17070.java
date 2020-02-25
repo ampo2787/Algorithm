@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class PipeMove_17070 {
     static int result;
     static int N;
     static int[][] map;

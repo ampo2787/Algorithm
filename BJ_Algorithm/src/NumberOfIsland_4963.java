@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class NumberOfIsland_4963 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class NandM2_15650 {
     static int[] list;
     static boolean[] visit;
     static StringBuilder sb = new StringBuilder();

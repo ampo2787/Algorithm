@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main{
+public class FileMerge_11066 {
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         int caseCNT = s.nextInt();

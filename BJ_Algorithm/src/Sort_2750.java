@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Sort_2750 {
     static int[] mergeArray = new int[Integer.MAX_VALUE];
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

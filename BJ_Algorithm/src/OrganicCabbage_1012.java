@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class OrganicCabbage_1012 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int T = scanner.nextInt();

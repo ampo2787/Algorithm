@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Snake_3190 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -10,7 +10,7 @@ public class Main {
 		int N = sc.nextInt();
 		int K = sc.nextInt();
 		int[][] map = new int[N + 1][N + 1];
-		map[1][1] = 1; // ¹ì.
+		map[1][1] = 1; // ï¿½ï¿½.
 
 		for (int i = 0; i < K; i++) {
 			map[sc.nextInt()][sc.nextInt()] = 2;
@@ -18,7 +18,7 @@ public class Main {
 
 		int L = sc.nextInt();
 		int[] direction = new int[10001];
-		// 1Àº ¿À¸¥ÂÊÀ¸·Î 90µµ, 0Àº ±×´ë·Î, -1Àº ¿ÞÂÊÀ¸·Î 90µµ.
+		// 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 90ï¿½ï¿½, 0ï¿½ï¿½ ï¿½×´ï¿½ï¿½, -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 90ï¿½ï¿½.
 
 		for (int i = 0; i < L; i++) {
 			int idx = sc.nextInt();
@@ -38,7 +38,7 @@ public class Main {
 		Queue<int[]> snake = new LinkedList<>();
 		int[] start = { ny, nx };
 		snake.add(start);
-		// ºó °ø°£ 0, ¹ì 1, »ç°ú 2.
+		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0, ï¿½ï¿½ 1, ï¿½ï¿½ï¿½ 2.
 		while (true) {
 			/*
 			 * for (int i = 1; i <= N; i++) { for (int j = 1; j <= N; j++) {

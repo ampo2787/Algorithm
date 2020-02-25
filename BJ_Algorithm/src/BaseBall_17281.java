@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class BaseBall_17281 {
 	static int n;
 	static int[][] score;
 	static boolean[] visit;

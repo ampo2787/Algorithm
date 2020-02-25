@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class CutColorPaper_2630 {
     static int whitePaper = 0;
     static int bluePaper = 0;
     static boolean allPaper = true;

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class RoomAssignment_1931 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();

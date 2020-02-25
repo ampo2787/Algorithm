@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Tomato_7576 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int M = scanner.nextInt();

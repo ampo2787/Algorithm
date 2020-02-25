@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class LanLineCut_1654 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

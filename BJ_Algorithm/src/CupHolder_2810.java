@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class CupHolder_2810 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class StartAndLink_14889 {
 	static int N;
 	static int[][] S;
 	static boolean[] visited;

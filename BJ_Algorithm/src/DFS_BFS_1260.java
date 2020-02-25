@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class DFS_BFS_1260 {
 
     private void solve() {
         int n = sc.nextInt();
@@ -92,7 +92,7 @@ public class Main {
     public static void main(String[] args) {
         sc.init();
 
-        new Main().solve();
+        new DFS_BFS_1260().solve();
     }
 
     static class sc {

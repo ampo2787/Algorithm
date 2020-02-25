@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class BionomialCoefficient_11050 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();

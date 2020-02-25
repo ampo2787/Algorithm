@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class GoodbyeFineDust_17144 {
     public static void main(String[] args) {
         int[] dy = {0,0,1,-1};
         int[] dx = {1,-1,0,0};

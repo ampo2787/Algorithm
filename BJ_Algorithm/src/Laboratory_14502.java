@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Laboratory_14502 {
 	static ArrayList<int[]> combination = new ArrayList();
 
 	public static void main(String[] args) {
@@ -33,9 +33,9 @@ public class Main {
 			}
 		}
 
-		// new_Wall_Place °¡ º®À» ¼¼¿ï¸¸ÇÑ ÈÄº¸Áö.
-		// virus °¡ ¹ÙÀÌ·¯½º À§Ä¡.
-		// new_Walll_Place ¿¡ º®À» ´Ù ¼¼¿öº¸°í virus ¸¦ BFS ·Î È®»ê.
+		// new_Wall_Place ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¸¸ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½.
+		// virus ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡.
+		// new_Walll_Place ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ virus ï¿½ï¿½ BFS ï¿½ï¿½ È®ï¿½ï¿½.
 
 		combination(empty_Place.size());
 		int max_SafetyZone = 0;
@@ -46,7 +46,7 @@ public class Main {
 				int x = empty_Place.get(combination.get(i)[j])[1];
 				map[y][x] = 1;
 			}
-			// BFS ±¸Çö.
+			// BFS ï¿½ï¿½ï¿½ï¿½.
 			Queue<int[]> queue = new LinkedList<>();
 			for (int j = 0; j < virus.size(); j++) {
 				queue.add(virus.get(j));
@@ -75,7 +75,7 @@ public class Main {
 						safe++;
 					}
 				}
-				// Á¶°Ç ÃÊ±âÈ­.
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 				map[j] = origin_map[j].clone();
 			}
 			max_SafetyZone = Math.max(safe, max_SafetyZone);
