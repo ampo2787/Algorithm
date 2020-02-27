@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Solution {
+public class Hay_5603 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

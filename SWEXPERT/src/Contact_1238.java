@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Solution {
+public class Contact_1238 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

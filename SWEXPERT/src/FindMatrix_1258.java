@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-public class Solution {
+public class FindMatrix_1258 {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub

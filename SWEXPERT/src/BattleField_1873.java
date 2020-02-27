@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Solution {
+public class BattleField_1873 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();

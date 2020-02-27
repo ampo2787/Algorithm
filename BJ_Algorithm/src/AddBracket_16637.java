@@ -77,8 +77,8 @@ public class AddBracket_16637 {
 
 	private static void makePowerSet(long n, int[] arrN, int[] arrBuho) {
 		boolean[] preCul = new boolean[(int) n];
-// 1<<n = 2의 n승.
-// (1<<j) & i = 10000 & i
+		// 1<<n = 2의 n승.
+		// (1<<j) & i = 10000 & i
 		for (long i = 0; i < (1 << n); i++) {
 			// 조합 만들기
 			for (long j = 0; j < n; j++) {
