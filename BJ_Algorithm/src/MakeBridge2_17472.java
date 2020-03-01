@@ -8,7 +8,7 @@ public class MakeBridge2_17472 {
     static int[] dx = {0,1,0,-1};
     static int N;
     static int M;
-    static Point[][] map;
+    static int[][] map;
     static int minResult = Integer.MAX_VALUE;
 
     static class Point {
@@ -25,16 +25,11 @@ public class MakeBridge2_17472 {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
         M = sc.nextInt();
-        map = new Point[N][M];
+        map = new int[N][M];
 
         for(int i=0; i<N; i++) {
             for(int j=0; j<M; j++) {
-                if(sc.nextInt() == 0) {
-                    map[i][j] = new Point(true, new ArrayList<>());
-                }
-                else {
-                    map[i][j] = new Point(false, new ArrayList<>());
-                }
+                map[i][j] = sc.nextInt();
             }
         }
 
@@ -54,7 +49,7 @@ public class MakeBridge2_17472 {
         System.out.println(minResult);
     }
 
-    public static void dfs(int y, int x, Point[][] map, int bridgeLength) {
+    public static void dfs(int y, int x, int[][] map, int bridgeLength) {
         int nextDFSx = x + 1;
         int nextDFSy = y;
         if(nextDFSx == M) {
@@ -66,7 +61,7 @@ public class MakeBridge2_17472 {
         }
         //다음 dfs 할 요소 미리 계산.
 
-        if(map[y][x].isSea) { //바다일 경우는 바로 다음으로 넘어감.
+        if(map[y][x] != 1) { //바다, 다리일 경우는 바로 다음으로 넘어감.
             dfs(nextDFSy,nextDFSx,map, bridgeLength);
             return;
         }
@@ -82,8 +77,8 @@ public class MakeBridge2_17472 {
                 continue;
             }
 
-            if(map[ny][nx].isSea && map[ny+dy[i]][nx+dx[i]].isSea) { //최소 두 칸 이상이 바다여야 한다.
-                Point[][] copy = new Point[N][M];
+            if(map[ny][nx] != 1 && map[ny+dy[i]][nx+dx[i]] != 1) { //최소 두 칸 이상이 바다, 다리여야 한다.
+                int[][] copy = new int[N][M];
 
                 for(int j=0;j<N; j++) {
                     copy[j] = map[j].clone();
@@ -97,17 +92,22 @@ public class MakeBridge2_17472 {
 
             }
         }
-        dfs(nextDFSy,nextDFSx,map, bridgeLength); // 다리를 놓지 않은 경우.
+        dfs(nextDFSy,nextDFSx, map, bridgeLength); // 다리를 놓지 않은 경우.
     }
 
-    public static int addBridge(int y , int x, int dir, Point[][] copyMap, int bridgeLength) {
+    public static int addBridge(int y , int x, int dir, int[][] copyMap, int bridgeLength) {
         int ny = y;
         int nx = x;
         int newBridgeLength = 0;
 
         while(!(ny < 0 || ny >= N || nx < 0 || nx >= M)) {
-            if(copyMap[ny][nx].isSea) {
-                copyMap[ny][nx].bridge.add(dir);
+            if(copyMap[ny][nx] != 1) {
+                if(copyMap[ny][nx] >= 2) {
+                    copyMap[ny][nx]++;
+                }
+                else {
+                    copyMap[ny][nx] = 2;
+                }
                 ny += dy[dir];
                 nx += dx[dir];
                 newBridgeLength++;
@@ -122,24 +122,14 @@ public class MakeBridge2_17472 {
         return bridgeLength;
     }
 
-    public static boolean check(Point[][] map, int length) {
+    public static boolean check(int[][] map, int length) {
         Queue<int[]> queue = new LinkedList<>();
-        Point[][] copyMap = new Point[N][M];
+        int[][] copyMap = new int[N][M];
 
         for(int j=0;j<N; j++) {
             copyMap[j] = map[j].clone();
             for(int k=0; k<N; k++) {
-                if(!copyMap[j][k].isSea) {
-                    System.out.print(1 + " ");
-                }
-                else {
-                    if(copyMap[j][k].bridge.size() != 1) {
-                        System.out.print(copyMap[j][k].bridge.size() + " ");
-                    }
-                    else {
-                        System.out.print(2 + " ");
-                    }
-                }
+                System.out.print(copyMap[j][k] + " ");
             }
             System.out.println();
         }
@@ -149,50 +139,20 @@ public class MakeBridge2_17472 {
 
         for(int i=0; i<N; i++) {
             for(int j=0; j<M; j++) {
-                if(!map[i][j].isSea) {
+                if(map[i][j] == 1) {
                     int[] temp = {i,j};
-                    copyMap[i][j].isSea = true;
+                    copyMap[i][j] = 0;
                     queue.add(temp);
                     i=N;
                     break;
                 }
             }
         }
-
-        while(!queue.isEmpty()) {
-            int[] item = queue.poll();
-
-                for(int i = 0; i < 4; i++) {
-                    int ny = item[0] + dy[i];
-                    int nx = item[1] + dx[i];
-
-                    if (ny < 0 || ny >= N || nx < 0 || nx >= M) {
-                        continue;
-                    }
-
-                    if (!copyMap[ny][nx].isSea) {
-                        int[] temp = {ny,nx};
-                        queue.add(temp);
-                        copyMap[ny][nx].isSea = true;
-                    }
-                    else {
-                        if(copyMap[ny][nx].bridge.contains(i)) {
-                            while(copyMap[ny][nx].isSea) {
-                                copyMap[ny][nx].bridge.remove((Object) i);
-                                ny += dy[i];
-                                nx += dx[i];
-                            }
-                            int[] temp = {ny,nx};
-                            queue.add(temp);
-                        }
-                    }
-                }
-
-        }
+        // ㅇ
 
         for(int i=0; i<N; i++) {
             for (int j = 0; j < M; j++) {
-                if(!copyMap[i][j].isSea) {
+                if(copyMap[i][j] != 0) {
                     return false;
                 }
             }
