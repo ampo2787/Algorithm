@@ -1,10 +1,12 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ChocoAndRaisins_9282 {
     static int n;
     static int m;
-    static int[][] a;
+    static int[][] map;
     static int result;
+    static int[][][][] memory;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,113 +15,71 @@ public class ChocoAndRaisins_9282 {
         for(int test_case=1; test_case<=TC; test_case++) {
             n = sc.nextInt();
             m = sc.nextInt();
-            a = new int[n][m];
-            result = Integer.MAX_VALUE;
 
-            for(int i=0;i<n; i++) {
-                for(int j=0; j<m; j++) {
-                    a[i][j] = sc.nextInt();
+            map = new int[n][m];
+            memory = new int[n+1][m+1][n+1][m+1];
+
+            for(int[][][] d1 : memory) {
+                for(int[][] d2 : d1) {
+                    for(int[] d3 : d2) {
+                        Arrays.fill(d3, Integer.MAX_VALUE);
+                    }
                 }
             }
 
-            result = dfs(0, n - 1, 0, m - 1);
+            for(int i=0;i < n; i++) {
+                for(int j=0; j < m; j++) {
+                    map[i][j] = sc.nextInt();
+                }
+            }
+
+            result = dfs(0, 0, n, m);
             System.out.println("#" + test_case + " " + result);
         }
     }
 
-    public static int dfs(int y1, int y2, int x1, int x2) {
-        int pay = 0;
-
-        for(int i=y1; i<=y2; i++) {
-            for(int j=x1; j<=x2; j++) {
-                pay += a[i][j];
-            }
-        }
-
-        if(y2== y1 && x2 == x1) {
+    public static int dfs(int y, int x, int h, int w) {
+        if(w == 1 && h == 1) {
             return 0;
         }
 
-        if((y2 == y1 && x2 - 1 == x1) || (x2 == x1 && y2 - 1 == y1)) { //크기가 2일 때.
-            return pay;
-        }
+        int sum = 0;
 
-        int minPayThisTime = Integer.MAX_VALUE;
-
-        boolean isY = true;
-        int dividePoint = y1;
-        //y1 ~ divide[0] , divide[0]+1 ~ y2 이런식.
-
-        for(int i = y1; i < y2; i++) { // 가로 커팅.
-            int tempPay1 = 0;
-            int tempPay2 = 0;
-            for (int m = y1; m <= i; m++) {
-                for (int n = x1; n <= x2; n++) {
-                    tempPay1 += a[m][n];
-                }
-            }
-
-            for (int m = i + 1; m <= y2; m++) {
-                for (int n = x1; n <= x2; n++) {
-                    tempPay2 += a[m][n];
-                }
-            }
-
-            if (tempPay1 < tempPay2) {
-                if(tempPay2 < minPayThisTime) {
-                    minPayThisTime = tempPay2;
-                    dividePoint = i;
-                }
-            }
-            else {
-                if(tempPay1 < minPayThisTime) {
-                    minPayThisTime = tempPay1;
-                    dividePoint = i;
-                }
+        for (int i = y; i < y + h; i++) {
+            for (int j = x; j < x + w; j++) {
+                sum += map[i][j];
             }
         }
 
-        for(int i = x1; i < x2; i++) { // 세로 커팅.
-            int tempPay1 = 0;
-            int tempPay2 = 0;
-            for (int m = y1; m <= y2; m++) {
-                for (int n = x1; n <= i; n++) {
-                    tempPay1 += a[m][n];
-                }
+        // 가로.
+        for(int i = 1; i < h; i++) {
+            if(memory[y][x][i][w] == Integer.MAX_VALUE) {
+                memory[y][x][i][w] = dfs(y, x, i, w);
             }
-
-            for (int m = y1; m <= y2; m++) {
-                for (int n = i+1; n <= x2; n++) {
-                    tempPay2 += a[m][n];
-                }
+            if(memory[y+i][x][h-i][w] == Integer.MAX_VALUE) {
+                memory[y+i][x][h-i][w] = dfs(y + i, x, h-i, w);
             }
-
-            if (tempPay1 < tempPay2) {
-                if(tempPay2 < minPayThisTime) {
-                    minPayThisTime = tempPay2;
-                    isY = false;
-                    dividePoint = i;
-                }
-            }
-            else {
-                if(tempPay1 < minPayThisTime) {
-                    minPayThisTime = tempPay1;
-                    isY = false;
-                    dividePoint = i;
-                }
-            }
+            int sum1 = memory[y][x][i][w];
+            int sum2 = memory[y+i][x][h-i][w];
+            int sum3 = sum + sum1 + sum2;
+            memory[y][x][h][w] = Math.min(memory[y][x][h][w], sum3);
         }
 
-        if(isY) {
-            pay += dfs(y1,dividePoint,x1,x2);
-            pay += dfs(dividePoint + 1,y2,x1,x2);
-        }
-        else {
-            pay += dfs(y1,y2,x1,dividePoint);
-            pay += dfs(y1,y2,dividePoint+1,x2);
+        // 세로.
+        for(int i = 1; i < w; i++) {
+            if(memory[y][x][h][i] == Integer.MAX_VALUE) {
+                memory[y][x][h][i] = dfs(y, x, h, i);
+            }
+            if(memory[y][x+i][h][w-i] == Integer.MAX_VALUE) {
+                memory[y][x+i][h][w-i] = dfs(y, x + i, h, w - i);
+            }
+            int sum1 = memory[y][x][h][i];
+            int sum2 = memory[y][x+i][h][w-i];
+            int sum3 = sum + sum1 + sum2;
+            memory[y][x][h][w] = Math.min(memory[y][x][h][w], sum3);
         }
 
-        return pay;
+        return memory[y][x][h][w];
     }
 
 }
