@@ -6,10 +6,15 @@ public class IntervalSum_5604 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
-        long[] dp = new long[16];
-        dp[1] = 45;
+        long[][] dp = new long[16][11];
+
+        dp[1][1] = 45;
+        dp[1][10] = 45; //한 자리 수 전체 덧셈.
+
         for(int i=2; i<16; i++) {
-            dp[i] = dp[i-1] * 19;
+            for(int j=2; j<10; j++) {
+                dp[i][j] = dp[i-1][10] * 10 + j * ;
+            }
         }
 
         for(int tc=1; tc<=T; tc++) {
