@@ -14,4 +14,5 @@ public class BJ_11726 {
         System.out.println(dp[n]);
         sc.close();
     }
+
 }
