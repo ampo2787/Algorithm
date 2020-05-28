@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SW_3245 {
+public class SW_3234 {
 
     private static int[] w;
     private static int cnt;
